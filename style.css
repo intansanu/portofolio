@@ -487,9 +487,10 @@ footer span {
     .card-image img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        object-position: top;
+        object-fit: contain; /* Ubah 'cover' menjadi 'contain' ini kuncinya */
+        object-position: center; /* Ubah 'top' menjadi 'center' */
         transition: transform 0.5s ease;
+        background-color: #0f172a; /* Opsional: memberi warna latar jika ada ruang kosong */
     }
 
     /* Efek overlay saat gambar di-hover */

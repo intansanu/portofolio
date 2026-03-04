@@ -62,12 +62,13 @@
         </div>
         
         <div class="project-grid">
+            
             <div class="card reveal-stagger">
-                <div class="card-image" onclick="openModal('images/apotek-dashboard.jpeg')">
+                <div class="card-image" onclick='openGallery(["images/apotek-dashboard.jpeg", "images/apotek-filter.png", "images/apotek-detail.png"])'>
                     <img src="images/apotek-dashboard.jpeg" alt="Pharmacy Dashboard Admin">
-                    <div class="img-overlay"><span>🔍 Klik untuk perbesar</span></div>
+                    <div class="img-overlay"><span>🔍 Klik untuk lihat galeri</span></div>
                 </div>
-
+                
                 <div class="card-content">
                     <h3>Pharmacy Inventory & POS System</h3>
                     <p>A comprehensive Laravel-based pharmacy management system built during an internship.</p>
@@ -113,6 +114,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -149,14 +151,17 @@
             </div>
         </div>
     </section>
-<div id="imageModal" class="modal">
+
+    <div id="imageModal" class="modal">
         <span class="close-modal" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="expandedImg">
+        <div class="modal-wrapper">
+            <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+            <img class="modal-content" id="expandedImg">
+            <a class="next" onclick="changeImage(1)">&#10095;</a>
+            <div id="caption" class="caption-text"></div>
+        </div>
     </div>
 
-    <footer>
-        <p>Designed & Built by <span>Intan Sanu</span> © 2026</p>
-    </footer>
     <footer>
         <p>Designed & Built by <span>Intan Sanu</span> © 2026</p>
     </footer>
