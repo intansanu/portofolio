@@ -1,72 +1,278 @@
-body{
-font-family: Arial, sans-serif;
-margin:0;
-background:#0f172a;
-color:white;
+/* --- Konfigurasi Dasar & Variabel --- */
+:root {
+    --bg-dark: #0f172a;
+    --bg-card: #1e293b;
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
 }
 
-nav{
-display:flex;
-justify-content:space-between;
-padding:20px 50px;
-background:#020617;
+html {
+    scroll-behavior: smooth; /* Efek scroll halus bawaan CSS */
 }
 
-nav ul{
-display:flex;
-gap:20px;
-list-style:none;
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
 }
 
-nav a{
-color:white;
-text-decoration:none;
+/* --- Navigasi (Sticky & Glassmorphism) --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    transition: 0.3s ease;
 }
 
-header{
-text-align:center;
-padding:120px 20px;
+nav h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--primary);
 }
 
-button{
-padding:10px 20px;
-border:none;
-background:#6366f1;
-color:white;
-border-radius:6px;
-cursor:pointer;
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-section{
-padding:60px 80px;
+nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: color 0.3s;
 }
 
-.card{
-background:#1e293b;
-padding:20px;
-margin-bottom:20px;
-border-radius:10px;
+nav a:hover {
+    color: var(--primary);
 }
 
-.card span{
-color:#94a3b8;
-font-size:14px;
+/* --- Hero Section --- */
+header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    background: radial-gradient(circle at top, #1e293b 0%, var(--bg-dark) 70%);
 }
 
-.skills{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
+header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
 }
 
-.skills div{
-background:#334155;
-padding:10px 15px;
-border-radius:6px;
+header h1 span {
+    color: var(--primary);
 }
 
-footer{
-text-align:center;
-padding:20px;
-background:#020617;
+header p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    background: var(--primary);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+}
+
+/* --- Layout Section Umum --- */
+section {
+    padding: 100px 8%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* --- About --- */
+#about p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* --- Projects (CSS Grid) --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--primary);
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.3rem;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tags span {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* --- Skills --- */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill-badge {
+    background: var(--bg-card);
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skill-badge:hover {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* --- Contact --- */
+#contact {
+    text-align: center;
+}
+
+.contact-info {
+    margin: 30px 0;
+    color: var(--text-muted);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-outline {
+    padding: 10px 25px;
+    border: 2px solid var(--primary);
+    color: var(--text-main);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: rgba(2, 6, 23, 0.8);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* --- Animasi Fade-in (Dihubungkan dengan JS) --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsif untuk HP --- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    header h1 {
+        font-size: 2.5rem;
+    }
+    
+    section {
+        padding: 80px 5%;
+    }
 }
