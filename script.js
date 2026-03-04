@@ -98,3 +98,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     staggerReveals.forEach(stagger => staggerObserver.observe(stagger));
 });
+
+// 6. Modal Image Gallery Logic
+function openModal(imageSrc) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("expandedImg");
+    
+    modal.style.display = "block";
+    modalImg.src = imageSrc;
+    
+    // Mencegah body di-scroll saat modal terbuka
+    document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+    // Mengembalikan fungsi scroll pada body
+    document.body.style.overflow = "auto";
+}
+
+// Tutup modal jika user mengklik area di luar gambar
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById("imageModal");
+    if (event.target === modal) {
+        closeModal();
+    }
+});
