@@ -4,78 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intan Sanu | Web Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <div class="ambient-light light-1"></div>
+    <div class="ambient-light light-2"></div>
+
     <nav id="navbar">
-        <h2>Intan Sanu</h2>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
+        <h2 class="logo">Intan<span>.</span></h2>
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home" class="nav-item active">Home</a></li>
+            <li><a href="#about" class="nav-item">About</a></li>
+            <li><a href="#projects" class="nav-item">Projects</a></li>
+            <li><a href="#skills" class="nav-item">Skills</a></li>
+            <li><a href="#contact" class="nav-item">Contact</a></li>
         </ul>
     </nav>
 
     <header id="home">
         <div class="header-content reveal">
-            <h1>Hi, I'm <span>Intan Sanu</span></h1>
-            <p>Web Developer | Informatics Student</p>
-            <button onclick="scrollToProjects()">View My Work</button>
+            <p class="greeting">Hello, world! I am</p>
+            <h1 class="gradient-text">Intan Sanu</h1>
+            <p class="role">Web Developer & Informatics Student</p>
+            <p class="short-bio">Building digital experiences that are fast, accessible, and visually stunning.</p>
+            <button class="btn-primary" onclick="scrollToProjects()">Explore My Work</button>
         </div>
     </header>
 
     <section id="about" class="reveal">
-        <h2>About Me</h2>
-        <p>
-            Informatics student experienced in web application development through
-            academic, certification, and internship projects. Skilled in Laravel,
-            PHP, MySQL and mobile development using Flutter. Passionate about creating
-            clean, efficient, and user-friendly applications.
-        </p>
+        <div class="section-header">
+            <h2>About <span>Me</span></h2>
+            <div class="line"></div>
+        </div>
+        <div class="about-content">
+            <p>
+                I am an Informatics student with a strong passion for web and mobile application development. My journey involves turning complex problems into elegant, intuitive, and efficient solutions. I have hands-on experience through academic projects, professional certifications, and internships.
+            </p>
+            <p>
+                When I'm not coding, I'm constantly learning about new technologies and how to write cleaner, more maintainable code.
+            </p>
+        </div>
     </section>
 
-    <section id="projects" class="reveal">
-        <h2>Projects</h2>
+    <section id="projects">
+        <div class="section-header reveal">
+            <h2>Featured <span>Projects</span></h2>
+            <div class="line"></div>
+        </div>
+        
         <div class="project-grid">
-            <div class="card">
-                <h3>Drug Inventory Management</h3>
-                <p>Laravel-based pharmacy inventory system for stock monitoring, transactions and expiration tracking.</p>
-                <div class="tags">
-                    <span>Laravel</span><span>PHP</span><span>MySQL</span>
+            <div class="card reveal-stagger">
+                <div class="card-content">
+                    <h3>Drug Inventory Management</h3>
+                    <p>A comprehensive Laravel-based pharmacy system ensuring seamless stock monitoring, secure transactions, and real-time expiration tracking.</p>
+                    <div class="tags">
+                        <span>Laravel</span><span>PHP</span><span>MySQL</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="card">
-                <h3>Jiv Cinema Ticket Booking</h3>
-                <p>Online cinema ticket booking system with movie listing, seat selection and admin film management.</p>
-                <div class="tags">
-                    <span>Laravel</span><span>PHP</span><span>MVC</span>
+            <div class="card reveal-stagger">
+                <div class="card-content">
+                    <h3>Jiv Cinema Ticket Booking</h3>
+                    <p>An interactive cinema booking platform featuring dynamic movie listings, intuitive seat selection, and a robust admin dashboard.</p>
+                    <div class="tags">
+                        <span>Laravel</span><span>PHP</span><span>MVC</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="card">
-                <h3>TraveLine Mobile App</h3>
-                <p>Mobile travel destination recommendation app built using Flutter with Firebase integration.</p>
-                <div class="tags">
-                    <span>Flutter</span><span>Dart</span><span>Firebase</span>
+            <div class="card reveal-stagger">
+                <div class="card-content">
+                    <h3>TraveLine Mobile App</h3>
+                    <p>A beautifully designed mobile travel app providing personalized destination recommendations, powered by Firebase backend.</p>
+                    <div class="tags">
+                        <span>Flutter</span><span>Dart</span><span>Firebase</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="card">
-                <h3>University Registration System</h3>
-                <p>Web-based student registration system developed as part of Web Developer Certification (LSP).</p>
-                <div class="tags">
-                    <span>Laravel</span><span>PHP</span><span>MySQL</span>
+            <div class="card reveal-stagger">
+                <div class="card-content">
+                    <h3>University Registration System</h3>
+                    <p>A secure, web-based student enrollment portal developed and validated as part of my official Web Developer Certification.</p>
+                    <div class="tags">
+                        <span>Laravel</span><span>PHP</span><span>MySQL</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="skills" class="reveal">
-        <h2>Technical Skills</h2>
+        <div class="section-header">
+            <h2>Technical <span>Arsenal</span></h2>
+            <div class="line"></div>
+        </div>
         <div class="skills-container">
             <div class="skill-badge">Laravel</div>
             <div class="skill-badge">PHP</div>
@@ -83,25 +116,30 @@
             <div class="skill-badge">Flutter</div>
             <div class="skill-badge">Dart</div>
             <div class="skill-badge">Firebase</div>
-            <div class="skill-badge">GitHub</div>
+            <div class="skill-badge">REST API</div>
+            <div class="skill-badge">Git & GitHub</div>
         </div>
     </section>
 
     <section id="contact" class="reveal">
-        <h2>Let's Connect</h2>
-        <p>I'm currently open for new opportunities or collaborations.</p>
-        <div class="contact-info">
-            <p>📧 intansanu34@gmail.com</p>
-            <p>📍 Palembang, Indonesia</p>
-        </div>
-        <div class="social-links">
-            <a href="https://github.com" target="_blank" class="btn-outline">GitHub</a>
-            <a href="https://linkedin.com" target="_blank" class="btn-outline">LinkedIn</a>
+        <div class="contact-box">
+            <h2>Let's build something <span>amazing</span> together.</h2>
+            <p>I'm currently looking for new opportunities, internships, and exciting collaborations.</p>
+            
+            <div class="contact-details">
+                <a href="mailto:intansanu34@gmail.com" class="contact-link">📧 intansanu34@gmail.com</a>
+                <span class="location">📍 Palembang, Indonesia</span>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com" target="_blank" class="btn-social">GitHub</a>
+                <a href="https://linkedin.com" target="_blank" class="btn-social">LinkedIn</a>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 Intan Sanu. Built with passion.</p>
+        <p>Designed & Built by <span>Intan Sanu</span> © 2026</p>
     </footer>
 
     <script src="script.js"></script>
