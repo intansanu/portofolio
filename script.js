@@ -27,14 +27,16 @@ window.addEventListener('scroll', () => {
     const nav = document.getElementById('navbar');
     if (window.scrollY > 50) {
         nav.style.padding = '15px 8%';
-        nav.style.background = 'rgba(10, 10, 10, 0.9)';
+        nav.style.background = 'rgba(5, 5, 5, 0.9)';
+        nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.5)';
     } else {
         nav.style.padding = '20px 8%';
-        nav.style.background = 'rgba(10, 10, 10, 0.7)';
+        nav.style.background = 'rgba(5, 5, 5, 0.6)';
+        nav.style.boxShadow = 'none';
     }
 });
 
-// 4. Scroll Spy
+// 4. Scroll Spy (Highlight active nav link)
 const sections = document.querySelectorAll('section, header');
 window.addEventListener('scroll', () => {
     let current = '';
@@ -54,10 +56,12 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// 5. Scroll Reveal Animations
+// 5. Scroll Reveal Animations (Makin Halus)
 document.addEventListener('DOMContentLoaded', () => {
     const reveals = document.querySelectorAll('.reveal');
     const staggerReveals = document.querySelectorAll('.reveal-stagger');
+    
+    // Opsi agar elemen mulai muncul saat 15% bagiannya masuk ke layar
     const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
 
     const revealOnScroll = new IntersectionObserver((entries, observer) => {
@@ -71,10 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     reveals.forEach(reveal => revealOnScroll.observe(reveal));
 
+    // Animasi bergantian (staggered)
     const staggerObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                setTimeout(() => { entry.target.classList.add('active'); }, index * 150);
+                setTimeout(() => { entry.target.classList.add('active'); }, index * 180);
                 observer.unobserve(entry.target);
             }
         });
@@ -83,7 +88,19 @@ document.addEventListener('DOMContentLoaded', () => {
     staggerReveals.forEach(stagger => staggerObserver.observe(stagger));
 });
 
-// 6. Image Slider Modal Logic
+// 6. BARU: Parallax Mouse Move (Bikin Latar Belakang Interaktif)
+document.addEventListener('mousemove', (e) => {
+    const orbs = document.querySelectorAll('.ambient-light');
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
+    
+    // Menggeser cahaya berlawanan arah dengan mouse
+    orbs[0].style.transform = `translate(-${x * 40}px, -${y * 40}px)`;
+    orbs[1].style.transform = `translate(${x * 60}px, ${y * 60}px)`;
+    orbs[2].style.transform = `translate(-${x * 30}px, ${y * 30}px)`;
+});
+
+// 7. Image Slider Modal Logic (Animasi Lebih Mulus)
 let currentImages = [];
 let currentIndex = 0;
 
@@ -94,34 +111,46 @@ function openGallery(imagesArray) {
     
     modal.style.display = "flex"; 
     updateModalContent();
-    document.body.style.overflow = "hidden"; // Stop background scroll
+    document.body.style.overflow = "hidden"; // Berhenti scroll web di latar
 }
 
 function updateModalContent() {
     const modalImg = document.getElementById("expandedImg");
     const caption = document.getElementById("caption");
     
+    // Transisi gambar
     modalImg.style.opacity = 0;
+    modalImg.style.transform = "scale(0.95)";
     
     setTimeout(() => {
         modalImg.src = currentImages[currentIndex];
-        caption.innerHTML = `Gambar ${currentIndex + 1} dari ${currentImages.length}`;
+        caption.innerHTML = `🖼️ Gambar ${currentIndex + 1} / ${currentImages.length}`;
         modalImg.style.opacity = 1;
-    }, 150);
+        modalImg.style.transform = "scale(1)";
+    }, 200); // Jeda kecil untuk efek fade
 }
 
 function changeImage(step) {
     currentIndex += step;
+    
+    // Looping gambar (balik ke awal kalau mentok)
     if (currentIndex >= currentImages.length) currentIndex = 0;
     else if (currentIndex < 0) currentIndex = currentImages.length - 1;
+    
     updateModalContent();
 }
 
 function closeModal() {
-    document.getElementById("imageModal").style.display = "none";
-    document.body.style.overflow = "auto"; // Restore scroll
+    const modal = document.getElementById("imageModal");
+    modal.style.opacity = 0;
+    setTimeout(() => {
+        modal.style.display = "none";
+        modal.style.opacity = 1; // Reset opacity untuk buka selanjutnya
+        document.body.style.overflow = "auto"; // Kembalikan fungsi scroll web
+    }, 300);
 }
 
+// Tutup modal jika area gelap di luar gambar diklik
 window.addEventListener('click', function(event) {
     const modal = document.getElementById("imageModal");
     if (event.target === modal) {
