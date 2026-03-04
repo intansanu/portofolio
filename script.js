@@ -1,11 +1,9 @@
-// 1. Fungsi Tombol Hero
+// 1. Scroll To Projects
 function scrollToProjects() {
-    document.getElementById("projects").scrollIntoView({
-        behavior: "smooth"
-    });
+    document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
 }
 
-// 2. Mobile Menu Toggle (Hamburger)
+// 2. Mobile Menu Toggle
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
 const navItems = document.querySelectorAll('.nav-item');
@@ -15,7 +13,6 @@ hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('toggle');
 });
 
-// Menutup menu mobile saat link diklik
 navItems.forEach(item => {
     item.addEventListener('click', () => {
         if (navLinks.classList.contains('nav-active')) {
@@ -37,16 +34,13 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// 4. Scroll Spy (Highlight active nav link)
+// 4. Scroll Spy
 const sections = document.querySelectorAll('section, header');
-
 window.addEventListener('scroll', () => {
     let current = '';
-    
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        // Deteksi jika kita sudah scroll masuk ke area section tersebut
         if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
             current = section.getAttribute('id');
         }
@@ -60,17 +54,11 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// 5. Scroll Reveal Animations (termasuk Staggered effect)
+// 5. Scroll Reveal Animations
 document.addEventListener('DOMContentLoaded', () => {
-    // Reveal biasa
     const reveals = document.querySelectorAll('.reveal');
-    // Reveal untuk grid (staggered)
     const staggerReveals = document.querySelectorAll('.reveal-stagger');
-
-    const revealOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
-    };
+    const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
 
     const revealOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -83,14 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     reveals.forEach(reveal => revealOnScroll.observe(reveal));
 
-    // Logika khusus untuk animasi staggered (bergantian) di grid
     const staggerObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                // Memberikan delay berdasarkan urutan elemen
-                setTimeout(() => {
-                    entry.target.classList.add('active');
-                }, index * 150); // Delay 150ms tiap elemen
+                setTimeout(() => { entry.target.classList.add('active'); }, index * 150);
                 observer.unobserve(entry.target);
             }
         });
@@ -99,25 +83,45 @@ document.addEventListener('DOMContentLoaded', () => {
     staggerReveals.forEach(stagger => staggerObserver.observe(stagger));
 });
 
-// 6. Modal Image Gallery Logic
-function openModal(imageSrc) {
+// 6. Image Slider Modal Logic
+let currentImages = [];
+let currentIndex = 0;
+
+function openGallery(imagesArray) {
     const modal = document.getElementById("imageModal");
+    currentImages = imagesArray;
+    currentIndex = 0; 
+    
+    modal.style.display = "flex"; 
+    updateModalContent();
+    document.body.style.overflow = "hidden"; // Stop background scroll
+}
+
+function updateModalContent() {
     const modalImg = document.getElementById("expandedImg");
+    const caption = document.getElementById("caption");
     
-    modal.style.display = "block";
-    modalImg.src = imageSrc;
+    modalImg.style.opacity = 0;
     
-    // Mencegah body di-scroll saat modal terbuka
-    document.body.style.overflow = "hidden";
+    setTimeout(() => {
+        modalImg.src = currentImages[currentIndex];
+        caption.innerHTML = `Gambar ${currentIndex + 1} dari ${currentImages.length}`;
+        modalImg.style.opacity = 1;
+    }, 150);
+}
+
+function changeImage(step) {
+    currentIndex += step;
+    if (currentIndex >= currentImages.length) currentIndex = 0;
+    else if (currentIndex < 0) currentIndex = currentImages.length - 1;
+    updateModalContent();
 }
 
 function closeModal() {
     document.getElementById("imageModal").style.display = "none";
-    // Mengembalikan fungsi scroll pada body
-    document.body.style.overflow = "auto";
+    document.body.style.overflow = "auto"; // Restore scroll
 }
 
-// Tutup modal jika user mengklik area di luar gambar
 window.addEventListener('click', function(event) {
     const modal = document.getElementById("imageModal");
     if (event.target === modal) {
