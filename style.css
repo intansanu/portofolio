@@ -670,6 +670,7 @@ footer span {
   transition: all 0.4s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .prev,
 .next {
   position: absolute;
@@ -683,7 +684,7 @@ footer span {
   align-items: center;
   justify-content: center;
 
-  font-size: 18px;
+  font-size: 20px;
   color: white;
 
   border-radius: 50%;
@@ -692,9 +693,11 @@ footer span {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(6px);
 
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 
-  transition: all 0.25s ease;
+  transition: 0.25s;
+
+  z-index: 3000;
 }
 
 .prev {
@@ -705,13 +708,14 @@ footer span {
   right: 20px;
 }
 
+.modal-content {
+  position: relative;
+  z-index: 2000;
+}
+
 .modal-wrapper {
   position: relative;
-  max-width: 85%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: auto;
+  z-index: 2500;
 }
 .prev:hover,
 .next:hover {
