@@ -672,30 +672,37 @@ footer span {
 }
 .prev,
 .next {
-  cursor: pointer;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  padding: 15px 25px;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
   color: white;
-  font-weight: bold;
-  font-size: 28px;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  user-select: none;
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  transition: all 0.25s ease;
 }
+
 .prev {
   left: 20px;
-  z-index: 2100;
 }
 
 .next {
   right: 20px;
-  z-index: 2100;
 }
 
 .modal-wrapper {
@@ -708,10 +715,9 @@ footer span {
 }
 .prev:hover,
 .next:hover {
-  background-color: var(--primary);
-  box-shadow: 0 0 20px var(--primary);
+  background: rgba(139, 92, 246, 0.35);
+  border-color: rgba(139, 92, 246, 0.7);
   transform: translateY(-50%) scale(1.1);
-  border-color: transparent;
 }
 .close-modal {
   position: absolute;
