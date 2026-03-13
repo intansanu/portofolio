@@ -814,3 +814,29 @@ footer span {
   padding: 80px 10%;
   text-align: center;
 }
+
+.hero-stack {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+}
+
+.hero-stack span {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.project-role {
+  font-size: 0.8rem;
+  color: var(--primary);
+  margin-bottom: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
