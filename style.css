@@ -161,11 +161,11 @@ nav {
 /* --- Header --- */
 header {
   height: 100vh;
+  padding-top: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 20px;
   position: relative;
 }
 .greeting {
@@ -689,10 +689,22 @@ footer span {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .prev {
-  left: -80px;
+  left: 20px;
+  z-index: 2100;
 }
+
 .next {
-  right: -80px;
+  right: 20px;
+  z-index: 2100;
+}
+
+.modal-wrapper {
+  position: relative;
+  max-width: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
 }
 .prev:hover,
 .next:hover {
