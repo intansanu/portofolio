@@ -36,20 +36,26 @@
     </nav>
 
     <header id="home">
-      <div class="header-content reveal">
-        <p class="greeting">Hello, I'm</p>
+      <div class="header-content reveal hero-layout">
+        <div class="hero-text">
+          <p class="greeting">Hello, I am</p>
+          <h1 class="gradient-text">Intan Sanu</h1>
+          <p class="role">Web Developer & Informatics Student</p>
 
-        <h1 class="gradient-text">Intan Sanu</h1>
+          <p class="short-bio">
+            Passionate about building web applications and turning ideas into
+            functional digital solutions using modern technologies.
+          </p>
 
-        <p class="role">
-          Web Developer specializing in
-          <strong>Laravel & Backend Systems</strong>
-        </p>
+          <button class="btn-primary pulse-btn" onclick="scrollToProjects()">
+            Explore My Work
+          </button>
+        </div>
 
-        <p class="short-bio">
-          I build clean, efficient web applications and enjoy turning ideas into
-          functional digital products.
-        </p>
+        <div class="hero-photo">
+          <img src="images/intan.png" alt="Intan Sanu" />
+        </div>
+
         <button class="btn-primary pulse-btn" onclick="scrollToProjects()">
           Explore My Work
         </button>
@@ -344,14 +350,71 @@
         </div>
 
         <div class="card reveal-stagger">
+          <div
+            class="card-image"
+            onclick="
+              openGallery([
+                'images/traveline-home.png',
+                'images/traveline-utama.png',
+                'images/traveline-search.png',
+                'images/traveline-detail.png',
+                'images/traveline-favorite.png',
+              ])
+            "
+          >
+            <img src="images/traveline-home.png" alt="TraveLine Mobile App" />
+
+            <div class="img-overlay">
+              <span>🔍 Klik untuk lihat galeri</span>
+            </div>
+          </div>
+
           <div class="card-content">
-            <h3>TraveLine Mobile App</h3>
+            <h3>TraveLine Mobile Travel Application</h3>
+
             <p>
-              A beautifully designed mobile travel app providing personalized
-              destination recommendations, powered by Firebase backend.
+              TraveLine is a mobile travel destination application designed to
+              help users explore tourist attractions and plan trips more easily.
+              The application provides detailed information about various
+              tourist destinations, including descriptions, images, ratings, and
+              location maps, allowing users to discover and organize travel
+              plans efficiently.
             </p>
+
+            <ul class="feature-list">
+              <li>
+                <strong>Destination Discovery:</strong> Browse various tourist
+                destinations with images, ratings, and descriptions.
+              </li>
+
+              <li>
+                <strong>Search & Category Filter:</strong> Users can search for
+                destinations or filter them by categories such as beaches,
+                mountains, lakes, and cities.
+              </li>
+
+              <li>
+                <strong>Interactive Maps:</strong> Integrated map feature to
+                show the exact location of tourist destinations.
+              </li>
+
+              <li>
+                <strong>Favorite Destinations:</strong> Save preferred
+                destinations for quick access later.
+              </li>
+
+              <li>
+                <strong>Dark Mode Interface:</strong> Theme customization to
+                improve user comfort and accessibility.
+              </li>
+            </ul>
+
             <div class="tags">
-              <span>Flutter</span><span>Dart</span><span>Firebase</span>
+              <span>Flutter</span>
+              <span>Dart</span>
+              <span>Firebase</span>
+              <span>Mobile App</span>
+              <span>UI/UX</span>
             </div>
           </div>
         </div>
@@ -367,13 +430,13 @@
         <div class="skill-badge floating-1">Laravel</div>
         <div class="skill-badge floating-2">PHP</div>
         <div class="skill-badge floating-3">MySQL</div>
+        <div class="skill-badge floating-1">HTML & CSS</div>
+        <div class="skill-badge floating-2">Git & GitHub</div>
+        <div class="skill-badge floating-3">JavaScript</div>
+        <div class="skill-badge floating-1">REST API</div>
         <div class="skill-badge floating-1">Flutter</div>
         <div class="skill-badge floating-2">Dart</div>
         <div class="skill-badge floating-3">Firebase</div>
-        <div class="skill-badge floating-1">REST API</div>
-        <div class="skill-badge floating-2">Git & GitHub</div>
-        <div class="skill-badge floating-3">JavaScript</div>
-        <div class="skill-badge floating-1">HTML & CSS</div>
       </div>
     </section>
 
